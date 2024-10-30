@@ -1,0 +1,83 @@
+@font-face {
+  src: url(../elements/font/Gilroy-Medium.ttf);
+  font-family: "Gilroy";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy";
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.ctr {
+  width: 90%;
+  margin: 0 auto;
+}
+
+:root {
+  --main-color: rgba(75, 169, 255, 1);
+  --red-color: rgba(255, 84, 84, 1);
+  --black-color: rgba(0, 0, 0, 1);
+  --white-color: rgba(255, 255, 255, 1);
+  --gray-color: rgba(67, 66, 66, 1);
+}
+
+.prg {
+  font-size: 1.15em;
+  font-weight: 400;
+}
+
+.bprg {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.hdg {
+  font-size: 4em;
+  font-weight: 700;
+}
+
+.shdg {
+  font-size: 2.25em;
+  font-weight: 700;
+}
+
+button {
+  cursor: pointer;
+}
+
+.item_img {
+  /* background-image: url(../elements/Товар.png); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.nav_link-active {
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+
+.catalog_type-active {
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+
+.product_part-active {
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+
+.swiper_paganation-active {
+  background-color: var(--main-color);
+  color: var(--white-color);
+  border: none;
+}

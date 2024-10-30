@@ -1,0 +1,78 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "photo": "/elements/Товар (1).png",
+      "name": "Michelin",
+      "about": "Шина летняя Primacy 3 GRNX 205/55R16 91V",
+      "price": "990p"
+    },
+    {
+      "id": "2",
+      "photo": "/elements/Товар (1).png",
+      "name": "Michelin",
+      "about": "Шина летняя Primacy 3 GRNX 205/55R16 91V",
+      "price": "990p"
+    },
+    {
+      "id": "3",
+      "photo": "/elements/Товар (1).png",
+      "name": "Michelin",
+      "about": "Шина летняя Primacy 3 GRNX 205/55R16 91V",
+      "price": "990p"
+    },
+    {
+      "id": "4",
+      "photo": "/elements/Товар (1).png",
+      "name": "Michelin",
+      "about": "Шина летняя Primacy 3 GRNX 205/55R16 91V",
+      "price": "990p"
+    },
+    {
+      "id": "5",
+      "photo": "/elements/Товар (1).png",
+      "name": "Michelin",
+      "about": "Шина летняя Primacy 3 GRNX 205/55R16 91V",
+      "price": "990p"
+    },
+    {
+      "id": "6",
+      "photo": "/elements/Товар (1).png",
+      "name": "Michelin",
+      "about": "Шина летняя Primacy 3 GRNX 205/55R16 91V",
+      "price": "990p"
+    },
+    {
+      "id": "7",
+      "photo": "/elements/Товар (1).png",
+      "name": "Michelin",
+      "about": "Шина летняя Primacy 3 GRNX 205/55R16 91V",
+      "price": "990p"
+    },
+    {
+      "id": "8",
+      "photo": "/elements/Товар (1).png",
+      "name": "Michelin",
+      "about": "Шина летняя Primacy 3 GRNX 205/55R16 91V",
+      "price": "990p"
+    }
+  ],
+  "productPhoto": [
+    {
+      "id": "1",
+      "photo": "/elements/Товар.png"
+    },
+    {
+      "id": "2",
+      "photo": "/elements/Товар.png"
+    },
+    {
+      "id": "3",
+      "photo": "/elements/Товар.png"
+    },
+    {
+      "id": "4",
+      "photo": "/elements/Товар.png"
+    }
+  ]
+}
