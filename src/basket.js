@@ -8,10 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-if (!localStorage.getItem("shopCount")) {
-    localStorage.setItem("shopCount", "1");
-}
-let catalogProducts = document.querySelector(".catalog_products");
 function getProducts(product) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -27,20 +23,13 @@ function getProducts(product) {
         }
     });
 }
-function postProduct(product) {
-    fetch(`http://localhost:3000/products`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(product),
-    });
-}
+let catalogProducts = document.querySelector(".catalog_products");
+let num = Number(localStorage.getItem("shopCount"));
 getProducts("products").then((data) => {
     let calculator = 0;
     data.forEach((item) => {
         calculator++;
-        if (calculator <= 6) {
+        if (calculator <= num) {
             let product = document.createElement("div");
             product.innerHTML += `
   <div data-id="${item.id}" class="product w-full border border-gray-400 rounded-sm">
@@ -70,9 +59,6 @@ getProducts("products").then((data) => {
     let shopNum = document.querySelectorAll("#shopNum");
     plusShop.forEach((item) => {
         item.addEventListener("click", (e) => {
-            // let target = e.target as HTMLElement;
-            // let dataId: string | null = target.getAttribute("data-id");
-            // console.log(dataId);
             let localShopCount = localStorage.getItem("shopCount");
             let newShopCount = (Number(localShopCount) || 0) + 1;
             localStorage.setItem("shopCount", newShopCount.toString());
@@ -86,38 +72,4 @@ getProducts("products").then((data) => {
         });
     });
 });
-// plusShop?.addEventListener("click", (e) => {
-//   let target = e.target as HTMLElement;
-//   let dataId: string | null = target.getAttribute("data-id");
-//   data.forEach((item: Product) => {
-//     if (item.id === dataId) {
-//       console.log(dataId);
-//       console.log(target);
-//     }
-//   });
-// });
-let showcaseItem_img = document.getElementById("showcaseItem-img");
-let showcaseSwiper_left = document.getElementById("showcaseSwiper-left");
-let showcaseSwiper_right = document.getElementById("showcaseSwiper-right");
-let showcaseImg_num = document.getElementById("showcase_img-num");
-let showcaseImg_num_view = 1;
-showcaseSwiper_right.addEventListener("click", () => {
-    if (showcaseImg_num_view < 8) {
-        showcaseImg_num_view++;
-        showcaseImg_num.textContent = showcaseImg_num_view.toString();
-    }
-});
-showcaseSwiper_left.addEventListener("click", () => {
-    if (showcaseImg_num_view > 1) {
-        showcaseImg_num_view--;
-        showcaseImg_num.textContent = showcaseImg_num_view.toString();
-    }
-});
-getProducts("productPhoto").then((data) => {
-    function showcaseFunc(id) {
-        showcaseItem_img.style.cssText = `background-image: url(..${data[id].photo});`;
-    }
-    showcaseFunc(0);
-});
-// ----------------------------------------------------------
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=basket.js.map

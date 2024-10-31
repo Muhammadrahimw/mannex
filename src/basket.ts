@@ -1,12 +1,4 @@
-if (!localStorage.getItem("shopCount")) {
-  localStorage.setItem("shopCount", "1");
-}
-
-let catalogProducts = document.querySelector(
-  ".catalog_products"
-) as HTMLDivElement;
-
-async function getProducts(product: string) {
+async function getProducts(product: any) {
   try {
     let response = await fetch(`http://localhost:3000/${product}`);
     let data = await response.json();
@@ -19,15 +11,7 @@ async function getProducts(product: string) {
   }
 }
 
-function postProduct(product: string) {
-  fetch(`http://localhost:3000/products`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(product),
-  });
-}
+let catalogProducts = document.querySelector(".catalog_products");
 
 interface Product {
   id: string;
@@ -36,12 +20,14 @@ interface Product {
   price: string;
   photo: string;
 }
+let num: number = Number(localStorage.getItem("shopCount"));
 
 getProducts("products").then((data) => {
   let calculator: number = 0;
+
   data.forEach((item: Product) => {
     calculator++;
-    if (calculator <= 6) {
+    if (calculator <= num) {
       let product = document.createElement("div");
       product.innerHTML += `
   <div data-id="${item.id}" class="product w-full border border-gray-400 rounded-sm">
@@ -71,9 +57,6 @@ getProducts("products").then((data) => {
   let shopNum = document.querySelectorAll("#shopNum");
   plusShop.forEach((item) => {
     item.addEventListener("click", (e: any) => {
-      // let target = e.target as HTMLElement;
-      // let dataId: string | null = target.getAttribute("data-id");
-      // console.log(dataId);
       let localShopCount: string | null = localStorage.getItem("shopCount");
       let newShopCount = (Number(localShopCount) || 0) + 1;
       localStorage.setItem("shopCount", newShopCount.toString());
@@ -87,52 +70,3 @@ getProducts("products").then((data) => {
     });
   });
 });
-
-// plusShop?.addEventListener("click", (e) => {
-//   let target = e.target as HTMLElement;
-//   let dataId: string | null = target.getAttribute("data-id");
-
-//   data.forEach((item: Product) => {
-//     if (item.id === dataId) {
-//       console.log(dataId);
-//       console.log(target);
-//     }
-//   });
-// });
-
-let showcaseItem_img = document.getElementById(
-  "showcaseItem-img"
-) as HTMLDivElement;
-let showcaseSwiper_left = document.getElementById(
-  "showcaseSwiper-left"
-) as HTMLDivElement;
-let showcaseSwiper_right = document.getElementById(
-  "showcaseSwiper-right"
-) as HTMLDivElement;
-let showcaseImg_num = document.getElementById(
-  "showcase_img-num"
-) as HTMLSpanElement;
-let showcaseImg_num_view: number = 1;
-
-showcaseSwiper_right.addEventListener("click", () => {
-  if (showcaseImg_num_view < 8) {
-    showcaseImg_num_view++;
-    showcaseImg_num.textContent = showcaseImg_num_view.toString();
-  }
-});
-
-showcaseSwiper_left.addEventListener("click", () => {
-  if (showcaseImg_num_view > 1) {
-    showcaseImg_num_view--;
-    showcaseImg_num.textContent = showcaseImg_num_view.toString();
-  }
-});
-
-getProducts("productPhoto").then((data) => {
-  function showcaseFunc(id: number) {
-    showcaseItem_img.style.cssText = `background-image: url(..${data[id].photo});`;
-  }
-  showcaseFunc(0);
-});
-
-// ----------------------------------------------------------
