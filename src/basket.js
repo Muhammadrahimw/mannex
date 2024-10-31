@@ -1,29 +1,5 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-function getProducts(product) {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            let response = yield fetch(`http://localhost:3000/${product}`);
-            let data = yield response.json();
-            if (!response.ok) {
-                console.log(`ma'lumot olishda xatolik`);
-            }
-            return data;
-        }
-        catch (error) {
-            console.log(error + ` xatolik yuz berdi`);
-        }
-    });
-}
-let catalogProducts = document.querySelector(".catalog_products");
+let catalogProducts2 = document.querySelector(".catalog_products2");
 let num = Number(localStorage.getItem("shopCount"));
 getProducts("products").then((data) => {
     let calculator = 0;
@@ -51,7 +27,7 @@ getProducts("products").then((data) => {
                         </div>
                     </div>
   `;
-            catalogProducts.append(product);
+            catalogProducts2.append(product);
         }
     });
     let minusShop = document.querySelectorAll("#minusShop");

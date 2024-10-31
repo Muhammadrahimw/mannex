@@ -1,17 +1,6 @@
-async function getProducts(product: any) {
-  try {
-    let response = await fetch(`http://localhost:3000/${product}`);
-    let data = await response.json();
-    if (!response.ok) {
-      console.log(`ma'lumot olishda xatolik`);
-    }
-    return data;
-  } catch (error) {
-    console.log(error + ` xatolik yuz berdi`);
-  }
-}
-
-let catalogProducts = document.querySelector(".catalog_products");
+let catalogProducts2 = document.querySelector(
+  ".catalog_products2"
+) as HTMLDivElement;
 
 interface Product {
   id: string;
@@ -49,7 +38,7 @@ getProducts("products").then((data) => {
                         </div>
                     </div>
   `;
-      catalogProducts.append(product);
+      catalogProducts2.append(product);
     }
   });
   let minusShop = document.querySelectorAll("#minusShop");
